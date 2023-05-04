@@ -10,13 +10,13 @@ const Contact = () => {
       <Title title='Get In Touch' />
       <div className='contact-container'>
         <div className='contact-info'>
-          <div>
+          <div className='phone'>
             <AiOutlinePhone />
             <p>0837139604</p>
           </div>
           <div>
             <GoLocation />
-            <p>
+            <p className='address'>
               73/10, 46 street, Hiep Binh Chanh district, Thu Duc ward, Ho Chi
               Minh City
             </p>
@@ -53,6 +53,9 @@ const Wrapper = styled.section`
     display: flex;
     align-items: center;
     column-gap: 1rem;
+  }
+  .address {
+    text-transform: capitalize;
   }
   .form-input {
     display: block;

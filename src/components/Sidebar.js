@@ -1,29 +1,40 @@
-import React, { useState } from 'react';
-import { iconLinks, socialLinks } from '../components/icons';
-import styled from 'styled-components';
-import { useGlobalContext } from "../context"
+import React from 'react'
+import styled from 'styled-components'
+import { iconLinks, socialLinks } from '../components/icons'
+import { useGlobalContext } from '../context'
 export const Sidebar = () => {
-  const{isSidebarOpen,setSidebar} = useGlobalContext()
-  
+  const { isSidebarOpen, setSidebar } = useGlobalContext()
   return (
     <Wrapper>
-      <button className='close-btn' onClick={()=>{setSidebar(!isSidebarOpen)}}>x</button>
+      <button
+        className='close-btn'
+        onClick={() => {
+          setSidebar(!isSidebarOpen)
+        }}
+      >
+        x
+      </button>
       <ul class='sidebar-links'>
         {iconLinks.map((link, index) => {
-          const { text, icon } = link;
+          const { text, icon } = link
           return (
             <li key={index}>
-              <a href={`#${text}`} onClick={()=>{setSidebar(!isSidebarOpen)}}>
+              <a
+                href={`#${text}`}
+                onClick={() => {
+                  setSidebar(!isSidebarOpen)
+                }}
+              >
                 {icon}
                 {text}
               </a>
             </li>
-          );
+          )
         })}
       </ul>
       <ul class='social-icons'>
         {socialLinks.map((link, index) => {
-          const { text, icon } = link;
+          const { text, icon } = link
           return (
             <li key={index}>
               <a>
@@ -31,12 +42,12 @@ export const Sidebar = () => {
                 {text}
               </a>
             </li>
-          );
+          )
         })}
       </ul>
     </Wrapper>
-  );
-};
+  )
+}
 const Wrapper = styled.aside`
   position: fixed;
   background: var(--grey-600);
@@ -47,18 +58,21 @@ const Wrapper = styled.aside`
   display: grid;
   grid-template-rows: 1fr auto;
   transition: all 0.2s linear;
-  z-index:2;
+  z-index: 2;
 
   .close-btn {
     position: absolute;
     right: 2rem;
-    top:0.15rem;
+    top: 0.15rem;
     background: transparent;
     border: none;
     font-size: 2rem;
-    color: red;cursor:pointer
+    color: red;
+    cursor: pointer;
   }
-.sidebar-links{padding-top:2.7rem}
+  .sidebar-links {
+    padding-top: 2.7rem;
+  }
   .sidebar-links li a {
     display: flex;
     align-items: center;
@@ -66,18 +80,15 @@ const Wrapper = styled.aside`
     font-size: 1.6rem;
     text-transform: capitalize;
     padding: 1.2rem 2rem;
-    color:var(--white)
+    color: var(--white);
     cursor: pointer;
-
   }
   .sidebar-links li a:hover {
     background: var(--grey-500);
-    
   }
   .social-icons {
     display: flex;
     justify-content: center;
-    
   }
   .social-icons li a {
     display: flex;
@@ -87,8 +98,8 @@ const Wrapper = styled.aside`
     margin: 0.5rem;
     text-transform: capitalize;
     padding: 1rem 0;
-  } 
+  }
   @media screen and (min-width: 992px) {
-width:550px;
-    }
-`;
+    width: 550px;
+  }
+`
