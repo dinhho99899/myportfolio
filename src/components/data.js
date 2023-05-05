@@ -114,8 +114,8 @@ export const projects = [
   },
   {
     id: 3,
-    link: 'https://react-ecommerce-react.netlify.app/',
-    sourcecode: 'https://github.com/dinhho99899/ecommerce-project',
+    link: 'https://vandinhportfolio.netlify.app/',
+    sourcecode: 'https://github.com/dinhho99899/myportfolio',
     name: 'My Portfolio',
     image: './images/myportfolio.jpg',
     info: 'My fortfolio. I make this project to introduce myself to everyone. This is my first project so it could have some redundant. My appologize. ',

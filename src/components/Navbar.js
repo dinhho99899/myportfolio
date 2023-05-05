@@ -10,7 +10,7 @@ const Navbar = () => {
     if (theme) {
       theme = JSON.parse(localStorage.getItem('theme'))
     } else {
-      theme = 'light-theme'
+      theme = 'dark-theme'
     }
     return theme
   }
