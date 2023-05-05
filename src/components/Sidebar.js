@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { iconLinks, socialLinks } from '../components/icons'
+import { iconLinks, socialLinks } from './data'
 import { useGlobalContext } from '../context'
 export const Sidebar = () => {
   const { isSidebarOpen, setSidebar } = useGlobalContext()
@@ -33,11 +33,11 @@ export const Sidebar = () => {
         })}
       </ul>
       <ul class='social-icons'>
-        {socialLinks.map((link, index) => {
-          const { text, icon } = link
+        {socialLinks.map((item, index) => {
+          const { text, icon, link } = item
           return (
             <li key={index}>
-              <a>
+              <a href={link}>
                 {icon}
                 {text}
               </a>
@@ -50,7 +50,7 @@ export const Sidebar = () => {
 }
 const Wrapper = styled.aside`
   position: fixed;
-  background: var(--grey-600);
+  background: var(--body-color);
   width: 100vw;
   height: 100vh;
   top: 0;
@@ -80,11 +80,14 @@ const Wrapper = styled.aside`
     font-size: 1.6rem;
     text-transform: capitalize;
     padding: 1.2rem 2rem;
-    color: var(--white);
+    color: var(--title-color);
     cursor: pointer;
+    width: 100%;
   }
   .sidebar-links li a:hover {
-    background: var(--grey-500);
+    background: var(--text-color-light);
+
+    padding-left: 2rem;
   }
   .social-icons {
     display: flex;
@@ -98,6 +101,10 @@ const Wrapper = styled.aside`
     margin: 0.5rem;
     text-transform: capitalize;
     padding: 1rem 0;
+    color: var(--text-color);
+  }
+  .social-icons li a:hover {
+    color: var(--first-color);
   }
   @media screen and (min-width: 992px) {
     width: 550px;

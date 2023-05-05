@@ -1,15 +1,14 @@
 import React, { createContext, useState } from 'react'
-import { useContext } from 'react';
 const GlobalContext = createContext()
-const AppContext = ({children}) => {
-  const [isSidebarOpen,setSidebar] = useState(false)
+const AppContext = ({ children }) => {
+  const [isSidebarOpen, setSidebar] = useState(false)
   return (
-    <GlobalContext.Provider value={{isSidebarOpen,setSidebar}}>
-        {children}
+    <GlobalContext.Provider value={{ isSidebarOpen, setSidebar }}>
+      {children}
     </GlobalContext.Provider>
   )
 }
-const useGlobalContext = ()=>{
-   return React.useContext(GlobalContext)
+const useGlobalContext = () => {
+  return React.useContext(GlobalContext)
 }
-export {AppContext,useGlobalContext}
+export { AppContext, useGlobalContext }

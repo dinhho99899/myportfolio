@@ -1,45 +1,49 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Title from './Title'
-import { aboutInfo } from './icons'
+import { aboutInfo } from './data'
 const About = () => {
   const [index, setIndex] = useState(0)
-  const [content, setContent] = useState(aboutInfo)
-  const { text } = content[index]
+  const { text } = aboutInfo[index]
   return (
-    <Wrapper className='section section-center'>
-      <div className='about-section' id='about'>
-        <div className='about-img'>
-          <img src='./images/teamwork.png' alt='teamwork'></img>
-        </div>
-        <div className='about-content'>
-          <Title title='About me' />
-          <div className='about-center'>
-            <div className='btn-container'>
-              {content.map((about, aindex) => {
-                return (
-                  <button
-                    key={aindex}
-                    onClick={() => {
-                      setIndex(aindex)
-                    }}
-                    className={`about-btn ${index === aindex && 'active-btn'} `}
-                  >
-                    {about.title}
-                  </button>
-                )
-              })}
-            </div>
-            <div className='about'>
-              <p>{text}</p>
+    <Wrapper>
+      <section className='section section-center'>
+        <div className='about-section' id='about'>
+          <div className='about-img'>
+            <img src='./images/teamwork.png' alt='teamwork'></img>
+          </div>
+          <div className='about-content'>
+            <Title title='About Me' />
+            <div className='about-center'>
+              <div className='btn-container'>
+                {aboutInfo.map((about, aindex) => {
+                  return (
+                    <button
+                      key={aindex}
+                      onClick={() => {
+                        setIndex(aindex)
+                      }}
+                      className={`about-btn ${
+                        index === aindex && 'active-btn'
+                      } `}
+                    >
+                      {about.title}
+                    </button>
+                  )
+                })}
+              </div>
+              <div className='about'>
+                <p className='info'>{text}</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </Wrapper>
   )
 }
 const Wrapper = styled.section`
+  background: var(--backgound-grey);
   .about-section {
     max-width: var(--max-width);
     margin: 1rem auto;
@@ -56,17 +60,20 @@ const Wrapper = styled.section`
     padding: 0.4rem 0.5rem;
   }
   .about-btn {
-    font-size: 1rem;
-    text-transform: capitalize;
+    font-size: 1.1rem;
     cursor: pointer;
     border: none;
     background: transparent;
-    padding: 0rem 0.5rem;
+    padding: 0rem 0.8rem;
     margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    color: var(--text-color);
+  }
+  .about-btn:hover {
+    color: var(--first-color);
   }
   .active-btn {
-    box-shadow: 0 2px var(--grey-500);
-    color: var(--grey-500);
+    box-shadow: 0 2px var(--text-color);
   }
   img {
     width: 100%;
@@ -82,7 +89,7 @@ const Wrapper = styled.section`
   @media screen and (min-width: 800px) {
     .about-center {
       display: grid;
-      grid-template-columns: 110px 1fr;
+      grid-template-columns: auto 1fr;
       justify-content: start;
       column-gap: 0.7rem;
     }

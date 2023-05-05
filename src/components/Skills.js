@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { skillsIcons } from './icons'
+import { skillsIcons } from './data'
 const Skills = () => {
   return (
     <Wrapper className='section-center section'>
@@ -11,7 +11,11 @@ const Skills = () => {
         </div>
         <ul className='skills'>
           {skillsIcons.map((item, index) => {
-            return <li key={index}>{item.icon}</li>
+            return (
+              <li key={index}>
+                <span style={{ color: item.color }}>{item.icon}</span>
+              </li>
+            )
           })}
         </ul>
       </div>
@@ -24,12 +28,12 @@ const Skills = () => {
           <div className='number'></div>
           <div className='exp-title'>
             <span>2022 - Present</span>
-            <p>Self-study from Udemy, Youtube,FreeCodeCamp,W3Schools</p>
+            <p>Self-study from Udemy, Youtube, FreeCodeCamp, W3Schools...</p>
           </div>
         </article>
         <article className='exprerience'>
           <div className='number'></div>
-          <p>Lorem</p>
+          <p>. . .</p>
         </article>
       </div>
     </Wrapper>
@@ -54,15 +58,15 @@ const Wrapper = styled.section`
     align-items: center;
     gap: 1rem;
   }
-  span {
+  .exp-title span {
     padding: 0.375rem 0.8rem;
     text-align: center;
     min-width: 120px;
-    background: var(--grey-100);
+    background: var(--input-color);
     border-radius: 1rem;
   }
   .exprerience {
-    border-left: 2px dashed black;
+    border-left: 2px dashed var(--text-color);
     margin: 0;
     margin-bottom: 1rem;
     padding: 2rem 2rem;
@@ -72,9 +76,9 @@ const Wrapper = styled.section`
     position: absolute;
     top: 50%;
     left: 0;
-    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     margin-bottom: 0;
-    background: black;
+    background: var(--text-color);
     width: 0.75rem;
     height: 0.75rem;
     border-radius: 50%;

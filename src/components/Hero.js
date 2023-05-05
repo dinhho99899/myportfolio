@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import { socialLinks } from '../components/icons'
+import { socialLinks } from './data'
 const Hero = () => {
   return (
     <Wrapper className='section section-center'>
       <div className='hero-content'>
         <div className='underline'></div>
-        <h1>Hi, I'm Dinh</h1>
-        <h3>Front-end Developer</h3>
+        <h1>Hi, I'm Ho Van Dinh</h1>
+        <h2>Front-end Developer</h2>
         <p>Welcome to my portfolio</p>
         <a href='#contact'>
           <button className='btn'>Hire Me</button>
@@ -15,7 +15,13 @@ const Hero = () => {
         <div className='social-icons'>
           {socialLinks.map((item, index) => {
             return (
-              <a href='#' className='socials-btn' key={index}>
+              <a
+                href={item.link}
+                className='socials-btn'
+                key={index}
+                target='_blank'
+                rel='noreferrer'
+              >
                 {item.icon}
               </a>
             )
@@ -33,17 +39,20 @@ const Wrapper = styled.section`
   place-items: center;
   min-height: calc(100vh - 4.5rem);
   box-shadow: var(--dark-shadow);
-
-  h3 {
+  h1 {
+    letter-spacing: 0.25rem;
+  }
+  h2 {
     font-size: 1.5rem;
     text-transform: capitalize;
     letter-spacing: 0.25rem;
-    padding: 0;
-    margin: 0;
+    padding: 0.5rem 0;
+    color: var(--background-btn);
   }
   p {
     font-size: 1.1rem;
     letter-spacing: 0.25rem;
+    margin-bottom: 1rem;
   }
   .social-icons {
     display: flex;
@@ -70,7 +79,7 @@ const Wrapper = styled.section`
       position: absolute;
       width: 100%;
       height: 100%;
-      border: 0.25rem solid var(--grey-200);
+      border: 0.25rem solid var(--first-color);
       top: 2rem;
       right: -2rem;
       border-radius: var(--radius);

@@ -1,48 +1,77 @@
-import React from 'react';
-import styled from 'styled-components';
-import { FiAlignJustify, CiDark } from './icons';
-import { useGlobalContext } from '../context';
-import { iconLinks } from './icons';
+import { useEffect, useState } from 'react'
+import styled from 'styled-components'
+import { FiAlignJustify, CiDark } from './data'
+import { useGlobalContext } from '../context'
+import { iconLinks } from './data'
 const Navbar = () => {
-  const {isSidebarOpen,setSidebar} = useGlobalContext()
+  const { isSidebarOpen, setSidebar } = useGlobalContext()
+  const getLocaltheme = () => {
+    let theme = localStorage.getItem('theme')
+    if (theme) {
+      theme = JSON.parse(localStorage.getItem('theme'))
+    } else {
+      theme = 'light-theme'
+    }
+    return theme
+  }
+  const [theme, setTheme] = useState(getLocaltheme())
+  const toggleTheme = () => {
+    if (theme === 'dark-theme') {
+      setTheme('light-theme')
+    }
+    if (theme === 'light-theme') {
+      setTheme('dark-theme')
+    }
+  }
+
+  useEffect(() => {
+    localStorage.setItem('theme', JSON.stringify(theme))
+  }, [theme])
+
+  useEffect(() => {
+    document.documentElement.className = theme
+  }, [theme])
   return (
     <Wrapper>
       <div className='nav-header'>
         <div className='nav-center '>
-          <img src='./images/logo1.png'></img>
+          <img src='./images/logo1.png' alt='logo'></img>
           <h1>
             Van<span> Dinh</span>
           </h1>
         </div>
         <ul className='nav-links'>
-        {iconLinks.map((link, index) => {
-          const { text, icon } = link;
-          return (
-            <li key={index}>
-              <a href={`#${text}`}>
-                {text}
-              </a>
-            </li>
-          );
-        })}
+          {iconLinks.map((link, index) => {
+            const { text } = link
+            return (
+              <li key={index}>
+                <a href={`#${text}`}>{text}</a>
+              </li>
+            )
+          })}
         </ul>
         <div className='btn-container'>
-          <button className='dark-light-btn'>
+          <button className='dark-light-btn' onClick={toggleTheme}>
             <CiDark />
           </button>
-          <button className='toggle-btn' onClick={()=>{setSidebar(!isSidebarOpen)}}>
+          <button
+            className='toggle-btn'
+            onClick={() => {
+              setSidebar(!isSidebarOpen)
+            }}
+          >
             <FiAlignJustify />
           </button>
         </div>
       </div>
     </Wrapper>
-  );
-};
+  )
+}
 const Wrapper = styled.nav`
-padding-top:1rem ;
-padding-bottom:1rem ;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   width: 100%;
-  background: var(--grey-100);
+  background: var(--backgound-grey);
   .nav-header {
     display: flex;
     justify-content: space-between;
@@ -59,8 +88,6 @@ padding-bottom:1rem ;
     height: 40px;
   }
   h1 {
-    font-size: 1.5rem;
-    color: var(--grey-500);
     letter-spacing: var(--spacing);
     padding-left: 1rem;
   }
@@ -74,12 +101,16 @@ padding-bottom:1rem ;
     background: transparent;
     cursor: pointer;
     font-size: 1.8rem;
+    color: var(--first-color);
+  }
+  .dark-light-btn:hover {
+    color: var(--first-color-alt);
   }
   .toggle-btn {
     background: transparent;
     border: transparent;
-    font-size: 2rem;
-    color: var(--clr-grey-5);
+    font-size: 1.8rem;
+    color: var(--title-color);
     cursor: pointer;
     padding-right: 1rem;
   }
@@ -102,11 +133,18 @@ padding-bottom:1rem ;
       text-transform: capitalize;
       letter-spacing: var(--spacing);
       transition: var(--transition);
-      color: var(--clr-grey-1);
+      color: var(--text-color);
+
       cursor: pointer;
-      font-size: 1rem;
+    }
+    .nav-links li a {
+      color: var(--text-color);
+      font-size: var(--small-font-size);
+    }
+    .nav-links li a:hover {
+      color: var(--first-color);
     }
   }
-`;
+`
 
-export default Navbar;
+export default Navbar
