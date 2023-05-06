@@ -121,6 +121,15 @@ export const projects = [
     info: 'My fortfolio. I make this project to introduce myself to everyone. This is my first project so it could have some redundant. My appologize. ',
     language: ['React'],
   },
+  {
+    id: 4,
+    link: 'https://todolist-react-query.netlify.app/',
+    sourcecode: 'https://github.com/dinhho99899/todolist-reactquery',
+    name: 'To do list',
+    image: './images/todolist.jpg',
+    info: 'To do list app. A pet project using React-Query to perform CRUD actions',
+    language: ['React', 'React-Query'],
+  },
 ]
 export const aboutInfo = [
   {
