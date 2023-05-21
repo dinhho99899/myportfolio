@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 :root {
   --hue-color: 214;
   --first-color: hsl(var(--hue-color), 69%, 61%);
@@ -118,6 +119,7 @@
   --dark-shadow: 0 5px 15px rgba(0, 0, 1.5px, 0.5);
   --max-width: 1170px;
 }
+
 .light-theme {
   --first-color-second: hsl(var(--hue-color), 70%, 60%);
   --first-color-alt: hsl(var(--hue-color), 57%, 53%);
@@ -131,6 +133,7 @@
   --container-color: #fff;
   --backgound-grey: hsl(214, 6%, 93%);
 }
+
 .dark-theme {
   --first-color-second: hsl(var(--hue-color), 30%, 8%);
   --title-color: hsl(var(--hue-color), 8%, 95%);
@@ -141,6 +144,7 @@
   --container-color: hsl(var(--hue-color), 29%, 16%);
   --backgound-grey: hsl(var(--hue-color), 28%, 20%);
 }
+
 @media screen and (min-width: 992px) {
   :root {
     --big-font-size: 3rem;
@@ -158,9 +162,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 html {
   scroll-behavior: smooth;
 }
+
 body {
   font-family: var(--font1);
   background: var(--body-color);
@@ -171,6 +177,7 @@ body {
   line-height: 1.55;
   scroll-behavior: smooth;
 }
+
 h1,
 p,
 h2,
@@ -179,15 +186,18 @@ h4 {
   color: var(--title-color);
   margin: 0;
 }
+
 h2 {
   font-size: var(--h2-font-size);
   letter-spacing: 0.2rem;
 }
+
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
+
 a {
   text-decoration: none;
 }
@@ -198,12 +208,15 @@ a {
   margin-bottom: 1.25rem;
   background: var(--first-color);
 }
+
 span {
   color: var(--grey-600);
 }
+
 .btns {
   cursor: pointer;
 }
+
 .btn {
   padding: 0.7rem 1.5rem;
   background-color: var(--first-color);
@@ -215,9 +228,11 @@ span {
   text-transform: uppercase;
   font-size: 1rem;
 }
+
 .btn:hover {
   background-color: var(--first-color-alt);
 }
+
 .socials-btn {
   padding: 1rem 0.5rem;
   border: none;
@@ -226,21 +241,26 @@ span {
   font-size: 2.5rem;
   cursor: pointer;
 }
+
 .socials-btn:hover {
   color: var(--first-color-alt);
 }
+
 .section-center {
   width: 90vw;
   max-width: 1250px;
   margin: 0 auto;
 }
+
 .section {
   padding: 2rem 0;
 }
+
 .section-title {
   display: grid;
   place-items: center;
 }
+
 .link-btn {
   font-size: 0.7rem;
   padding: 0.5rem 0.7rem;
@@ -249,10 +269,12 @@ span {
   font-weight: 600;
   text-align: center;
 }
+
 .link-btn:hover {
   background-color: var(--clr-grey-3);
   color: var(--clr-grey-8);
 }
+
 .Toastify__toast {
   text-transform: capitalize;
 }

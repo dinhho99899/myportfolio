@@ -130,6 +130,15 @@ export const projects = [
     info: 'To do list app. A pet project using React-Query to perform CRUD actions',
     language: ['React', 'React-Query'],
   },
+  {
+    id: 4,
+    link: 'https://github.com/dinhho99899/mernEcommerceProject',
+    sourcecode: 'https://github.com/dinhho99899/mernEcommerceProject',
+    name: 'Ecommerce Website',
+    image: './images/mernProject.jpg',
+    info: 'Unfinished Mern Project with backend and front-end',
+    language: ['React', 'Node/Express'],
+  },
 ]
 export const aboutInfo = [
   {
