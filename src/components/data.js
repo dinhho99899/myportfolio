@@ -132,12 +132,12 @@ export const projects = [
   },
   {
     id: 4,
-    link: 'https://github.com/dinhho99899/mernEcommerceProject',
-    sourcecode: 'https://github.com/dinhho99899/mernEcommerceProject',
+    link: 'https://vhmernproject.netlify.app/',
+    sourcecode: 'https://github.com/dinhho99899/MernEcommerceFrontEnd',
     name: 'Ecommerce Website',
     image: './images/mernProject.jpg',
     info: 'Unfinished Mern Project with backend and front-end',
-    language: ['React', 'Node/Express'],
+    language: ['React', 'Redux Toolkit', 'Node/Express', 'MongoDB'],
   },
 ]
 export const aboutInfo = [
